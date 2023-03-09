@@ -12,8 +12,16 @@ public class CounterServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        String reset = request.getParameter("reset");
+
+        if(reset != null)
+        {
+            count = 0;
+        }
+
         response.getWriter().println(count);
         count++;
+
     }
 
 }
