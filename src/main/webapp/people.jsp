@@ -28,6 +28,7 @@
 </head>
 <body>
 
+    <%@ include file="partials/navbar.jsp" %>
     <h1>People</h1>
     <c:choose>
 
@@ -50,7 +51,7 @@
         </c:otherwise>
     </c:choose>
 
-
+    <%@ include file="partials/footer.jsp" %>
 
 </body>
 </html>
