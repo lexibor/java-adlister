@@ -30,6 +30,8 @@
 </head>
 <body>
 
+    <%@ include file="partials/navbar.jsp" %>
+
     <h1>Welcome, ${userName}</h1>
 
 

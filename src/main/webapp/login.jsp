@@ -34,6 +34,8 @@
 </head>
 <body>
 
+    <%@ include file="partials/navbar.jsp" %>
+
     <h1>Login Form</h1>
     <form>
         <input type="text" name="userName">
