@@ -35,6 +35,7 @@
 <body>
 
     <%@ include file="partials/navbar.jsp" %>
+    <%@ include file="partials/css.jsp" %>
 
     <h1>Login Form</h1>
     <form>
