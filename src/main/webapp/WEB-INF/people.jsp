@@ -13,22 +13,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%
-    Person p1 = new Person("Fred", 24);
-    Person p2 = new Person("Sally", 34);
-    Person p3 = new Person("Andy", 14);
 
-    List<Person> people = new ArrayList<>(Arrays.asList(p1, p2, p3));
-
-    request.setAttribute("people", people);
-%>
 <html>
 <head>
     <title>People</title>
 </head>
 <body>
 
-    <%@ include file="partials/navbar.jsp" %>
+    <%@ include file="../partials/navbar.jsp" %>
     <h1>People</h1>
     <c:choose>
 
@@ -51,7 +43,7 @@
         </c:otherwise>
     </c:choose>
 
-    <%@ include file="partials/footer.jsp" %>
+    <%@ include file="../partials/footer.jsp" %>
 
 </body>
 </html>
