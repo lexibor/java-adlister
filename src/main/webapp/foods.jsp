@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.*" %><%--
   Created by IntelliJ IDEA.
   User: lexibor
@@ -16,7 +17,7 @@
 
     request.setAttribute("foodType", foodType);
 
-    Map<String, String> foods = new HashMap<>();
+    Map<String, List<String>> foods = new HashMap<>();
     List<String> meats = new ArrayList<>(Arrays.asList(
             "Burgers",
             "Steak",
@@ -28,8 +29,8 @@
             "Cheese",
             "Milk"
             ));
-    foods.put("meat", meats.toString());
-    foods.put("dairy", dairy.toString());
+    foods.put("meat", meats);
+    foods.put("dairy", dairy);
 
     request.setAttribute("foods", foods.get(foodType));
 
@@ -44,7 +45,14 @@
 
     <h1>Food Type: ${foodType}</h1>
 
-    <h3>${foods}</h3>
+<%--    <h3>${foods}</h3>--%>
+
+    <c:forEach var="food" items="${foods}">
+        <h3>${food}</h3>
+    </c:forEach>
+    <%-- Display foods using JSTL   --%>
+
+
 
 </body>
 </html>
