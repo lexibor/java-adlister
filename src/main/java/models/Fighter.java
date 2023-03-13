@@ -1,6 +1,7 @@
 package models;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Fighter implements Serializable //makes information able to be stored somewhere
 {
@@ -8,6 +9,8 @@ public class Fighter implements Serializable //makes information able to be stor
     private String name;
     private int maxDamage;
     private int hitPoints;
+    private List<Weapon> weapons;
+
 
 
     // have to have no argument constructor for java beans
@@ -21,6 +24,14 @@ public class Fighter implements Serializable //makes information able to be stor
         this.name = name;
         this.maxDamage = maxDamage;
         this.hitPoints = hitPoints;
+    }
+
+    public Fighter(String name, int maxDamage, int hitPoints, List<Weapon> weapons)
+    {
+        this.name = name;
+        this.maxDamage = maxDamage;
+        this.hitPoints = hitPoints;
+        this.weapons = weapons;
     }
 
     public int getId()
@@ -62,5 +73,13 @@ public class Fighter implements Serializable //makes information able to be stor
     public void setHitPoints(int hitPoints)
     {
         this.hitPoints = hitPoints;
+    }
+
+    public List<Weapon> getWeapons() {
+        return weapons;
+    }
+
+    public void setWeapons(List<Weapon> weapons) {
+        this.weapons = weapons;
     }
 }
