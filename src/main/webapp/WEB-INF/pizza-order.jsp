@@ -14,7 +14,7 @@
 
     <h1>Pizza Order Form</h1>
 
-    <form action="pizza-order">
+    <form method="post" action="pizza-order">
         <div>
             <label for="crust">Crust:</label>
             <select name="crust" id="crust">
