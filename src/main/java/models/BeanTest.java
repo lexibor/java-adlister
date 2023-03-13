@@ -11,8 +11,8 @@ public class BeanTest
         Album album1 = new Album("Michael Jackson", "Thriller", 1982, "Pop/Rock/R&B", 47.3);
         Album album2 = new Album("Pink Floyd", "The Dark Side of the Moon", 1973, "Progressive rock", 24.2);
 
-        Author author1 = new Author("JRR Tolkien", true);
-        Author author2 = new Author("Kentaro Miura", true);
+        Author author1 = new Author("JRR Tolkien");
+        Author author2 = new Author("Kentaro Miura");
 
         Quote q1 = new Quote("\"All that is gold does not glitter, not all those who wander are lost; the old that is strong does not wither, deep roots are not reached by the frost.\"", author1);
 
