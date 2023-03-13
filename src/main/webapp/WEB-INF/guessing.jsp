@@ -12,8 +12,8 @@
 </head>
 <body>
 
-    <h1>${invalid}</h1>
     <h1>Guess a number between 1 and 3:</h1>
+    <h2>${invalid}</h2>
 
     <br>
 
