@@ -8,17 +8,10 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        String logout = request.getParameter("logoutBtn");
-
-        if(logout == null)
-        {
-            request.getSession().invalidate();
-            response.sendRedirect("/login");
-        }
+        request.getSession().invalidate();
+        response.sendRedirect("/login");
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
+
 }

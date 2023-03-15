@@ -12,15 +12,17 @@
 
     <div class="container">
         <h1>Viewing your profile.</h1>
+        <div>
+            <h2>Welcome, ${username}</h2>
+        </div>
+
+        <div>
+            <form action="" method="post">
+                <input type="submit" name="logoutBtn" value="logout">
+            </form>
+        </div>
     </div>
 
-    <div>
-        <h2>Welcome, ${admin}</h2>
-    </div>
-
-    <div>
-        <input type="button" name="logoutBtn" value="logout">
-    </div>
 
 </body>
 </html>
