@@ -6,24 +6,27 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "LoginServlet", urlPatterns = "/login")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         boolean validAttempt = username.equals("admin") && password.equals("password");
 
         HttpSession session = request.getSession();
+            if (validAttempt) {
+                session.setAttribute("user", true);
+                response.sendRedirect("/profile");
+            } else {
+                response.sendRedirect("/login");
+            }
 
-        if (validAttempt) {
-            response.sendRedirect("/profile");
-//          session.setAttribute("user");
-        } else {
-            response.sendRedirect("/login");
-        }
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+
     }
 }
