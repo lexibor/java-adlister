@@ -32,35 +32,37 @@ public class LoginServlet extends HttpServlet {
 //        System.out.println(username);
 //        System.out.println(password);
 
+        User user = null;
         // TODO: find a record in your database that matches the submitted password
-//        User user = DaoFactory.getUsersDao().findByUsername(username);
+
+
         // TODO: make sure we find a user with that username
 
-//        if(user == null)
-//        {
-//            System.out.println("password");
-//            response.sendRedirect("/login");
-//            return;
-//        }
-
+        if(DaoFactory.getUsersDao().findByUsername(username) == null)
+        {
+            response.sendRedirect("/login");
+        }
+        else
+        {
+            user = DaoFactory.getUsersDao().findByUsername(username);
+        }
 
 
         // TODO: check the submitted password against what you have in your database
-//        boolean validAttempt = DaoFactory.getUsersDao().findByUsername(username).getPassword().equals(password);
-//        boolean validAttempt = password.equals(user.getPassword());
+        boolean validAttempt = DaoFactory.getUsersDao().findByUsername(username).getPassword().equals(password);
+//        User user = DaoFactory.getUsersDao().findByUsername(username);
 
 
-
-//        if (validAttempt) {
-//            // TODO: store the logged in user object in the session, instead of just the username
-//            System.out.println("user");
-//            request.getSession().setAttribute("user", user);
-//            response.sendRedirect("/profile");
-//        }
-//        else
-//        {
-//            System.out.println("login");
-//            response.sendRedirect("/login");
-//        }
+        if (validAttempt) {
+            // TODO: store the logged in user object in the session, instead of just the username
+            System.out.println("user");
+            request.getSession().setAttribute("user", user);
+            response.sendRedirect("/profile");
+        }
+        else
+        {
+            System.out.println("login");
+            response.sendRedirect("/login");
+        }
     }
 }
