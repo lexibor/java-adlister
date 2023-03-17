@@ -2,6 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
+import model.Config;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -42,8 +43,14 @@ public class MySQLAdsDao implements Ads {
     public Long insert(Ad ad) {
         try {
             Statement stmt = connection.createStatement();
-            stmt.executeUpdate(createInsertQuery(ad), Statement.RETURN_GENERATED_KEYS);
-            ResultSet rs = stmt.getGeneratedKeys();
+//            stmt.executeUpdate(createInsertQuery(ad), Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = connection.prepareStatement(createInsertQuery(ad), PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setLong(1, ad.getUserId());
+            ps.setString(2, ad.getTitle());
+            ps.setString(3, ad.getDescription());
+            ps.executeUpdate();
+
+            ResultSet rs = ps.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
@@ -52,10 +59,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     private String createInsertQuery(Ad ad) {
-        return "INSERT INTO ads(user_id, title, description) VALUES "
-            + "(" + ad.getUserId() + ", "
-            + "'" + ad.getTitle() +"', "
-            + "'" + ad.getDescription() + "')";
+        return "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
