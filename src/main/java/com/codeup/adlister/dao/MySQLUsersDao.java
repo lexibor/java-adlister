@@ -65,4 +65,11 @@ public class MySQLUsersDao implements Users {
         );
     }
 
+//    public static void main(String[] args)
+//    {
+//        String password = Password.hash("password");
+//        System.out.println(password);
+//        System.out.println(Password.check("password", Password.hash("password")));
+//    }
+
 }
